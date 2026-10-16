@@ -1,1 +1,29 @@
-mltbenv/*
+# Git metadata and local Python environments
+.git
+.git/**
+mltbenv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Runtime configuration and credentials: mount/provide these at runtime
+config.py
+.env
+.env.*
+rclone.conf
+token.pickle
+credentials.json
+client_secrets.json
+.netrc
+cookies.txt
+*.session
+*.session-journal
+accounts/
+tokens/
+rclone/
+thumbnails/
+downloads/
+log.txt
+rlog.txt
+cfg.zip
+sabnzbd/SABnzbd.ini
