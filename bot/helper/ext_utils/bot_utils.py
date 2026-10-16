@@ -204,10 +204,12 @@ def get_size_bytes(size):
 
 async def get_content_type(url):
     try:
-        async with AsyncClient() as client:
-            response = await client.get(url, allow_redirects=True, verify=False)
+        # Keep TLS certificate verification enabled. Bound the request duration
+        # so an unresponsive remote host cannot stall task initialization.
+        async with AsyncClient(timeout=10.0, follow_redirects=True) as client:
+            response = await client.get(url)
             return response.headers.get("Content-Type")
-    except:
+    except Exception:
         return None
 
 
