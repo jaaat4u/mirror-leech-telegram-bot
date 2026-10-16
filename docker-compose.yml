@@ -4,3 +4,12 @@ services:
     command: bash start.sh
     restart: on-failure
     network_mode: "host"
+    # config.py is intentionally excluded from the image build context.
+    # Keep the host-side file private and mount it read-only at runtime.
+    volumes:
+      - type: bind
+        source: ./config.py
+        target: /app/config.py
+        read_only: true
+        bind:
+          create_host_path: false
