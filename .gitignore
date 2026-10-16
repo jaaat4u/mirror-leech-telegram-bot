@@ -15,3 +15,24 @@ cookies.txt
 downloads/*
 *.session
 __pycache__/
+
+
+# Secrets and local runtime state
+.env
+.env.*
+!.env.example
+credentials.json
+client_secrets.json
+service-account*.json
+*service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+*.secret
+*.secrets
+*.session-journal
+rlog.txt
